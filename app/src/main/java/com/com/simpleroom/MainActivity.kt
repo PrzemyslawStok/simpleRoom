@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val database = Room.databaseBuilder(applicationContext,StudentDatabase::class.java,"student-database")
-            .allowMainThreadQueries().build()
+            .allowMainThreadQueries().fallbackToDestructiveMigration().build()
 
         val studentDao = database.studentDao()
 
